@@ -6,7 +6,7 @@
 
 
 
-        <table class="table table-striped"  >
+        <table class="table table-striped"  style="width:70%; margin:30px 50px 20px 160px">
 
 
 
@@ -27,7 +27,7 @@
               </a>
             </div>
 
-            <div id="collapseOne" class="accordion-body collapse">
+            <div id="collapseOne" class="accordion-body collapse in">
               <div class="accordion-inner">
 
                 <%= @saved_jobs.all[0].job.description_snippet %>
@@ -40,7 +40,7 @@
             <td>
 
         <% if @saved_jobs.all[0].is_applied == false %>
-            <input type="submit" value="Create" class="btn btn-primary"  />
+            <input type="submit" value="Create Resume" class="btn btn-primary"  />
         <% end %>
 
 
@@ -75,7 +75,7 @@
 
         <td>
           <% if @saved_jobs.all[1].is_applied == false %>
-              <input type="submit" value="Create" class="btn btn-primary"  />
+              <input type="submit" value="Create Resume" class="btn btn-primary"  />
             <% end %>
 
             </td>
@@ -112,7 +112,7 @@
 
 
           <% if @saved_jobs.all[1].is_applied == false %>
-                <input type="submit" value="Create" class="btn btn-primary"  />
+                <input type="submit" value="Create Resume" class="btn btn-primary"  />
           <% end %>
 
           </td>
