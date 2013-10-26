@@ -57,23 +57,23 @@ class AuthlinksController < ApplicationController
       @saved_jobs = client.job_bookmarks(:fields => [:job, :is_applied, :is_saved])
 
       if params[:job] == "0"
-        @skills = { "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"],
-                    "ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
-                                                                                                     "JavaScript"],
+        @skills = { "Project management" => [ "Scrum", "Agile Methodolgy"],
+                    "iOS development" => [ "Objective-C", "iOS"], "Web development"=> ["HTML", "HTML 5", "CSS", "CSS3","JavaScript"]
+
         }
       end
 
 
       if params[:job] =="1"
-        @skills = {"ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+        @skills = {"iOS development" => ["Objective-C", "iOS"], "Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
                                                                                                           "JavaScript"],
-                         "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+                         "Project Management" => [ "Scrum", "Agile Methodolgy"]}
 
       end
 
       if params[:job] =="2"
-        @skills = {"web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
-                                      "JavaScript"], "ios developer" => ["iOS development", "Objective-C", "iOS"], "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+        @skills = {"Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
+                                      "JavaScript"], "iOS development" => ["Objective-C", "iOS"], "Project management" => [ "Scrum", "Agile Methodolgy"]}
 
       end
 

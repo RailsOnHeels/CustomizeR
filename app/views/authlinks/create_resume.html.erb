@@ -9,11 +9,15 @@
       <td colspan="3" class="heading">Skills</td>
     </tr>
     <tr class="">
-      <td colspan="3"><span class="heading2">Web Technologies</span> : Ruby, Rails, XHTML, CSS, JavaScript
+      <td colspan="3"><span class="heading2"><%= @skills.keys[0] %></span> : <%= @skills.values[0].join(',').tr ' " ' , ' ' %>
+      </td>
+    </tr>
+    <tr class=" ">
+      <td colspan="3"><span class="heading2"><%= @skills.keys[1] %> </span> : <%= @skills.values[1].join(',').tr ' " ' , ' ' %>
       </td>
     </tr>
     <tr class="spaceUnder borderUnder">
-      <td colspan="3"><span class="heading2">Methodologies</span> : Agile, XP Programming
+      <td colspan="3"><span class="heading2"><%= @skills.keys[2] %> </span> : <%= @skills.values[2].join(',').tr ' " ' , ' ' %>
       </td>
     </tr>
     <tr class="spaceUnder spaceAbove">
@@ -21,21 +25,21 @@
     </tr>
     <tr>
       <td class="heading2"><%= @positions[0].company.name %>, <%= @positions[0].title %></td>
-      <td colspan="2" class="txtAlignRight"><%= @positions[0].start_date.month %> <%= @positions[0].start_date.year %> - Present</td>
+      <td colspan="2" class="txtAlignRight"><%= Date::MONTHNAMES[@positions[0].start_date.month] %> <%= @positions[0].start_date.year %> - Present</td>
     </tr>
     <tr class="spaceUnder">
       <td colspan="3"><%= @positions[0].summary %></td>
     </tr>
     <tr>
       <td class="heading2"><%= @positions[1].company.name %>, <%= @positions[1].title %></td>
-      <td colspan="2" class="txtAlignRight"><%= @positions[1].start_date.month %> <%= @positions[1].start_date.year %> - <%= @positions[1].end_date.month %> <%= @positions[1].end_date.year %></td>
+      <td colspan="2" class="txtAlignRight"><%= Date::MONTHNAMES[@positions[1].start_date.month] %> <%= @positions[1].start_date.year %> - <%= Date::MONTHNAMES[@positions[1].end_date.month] %> <%= @positions[1].end_date.year %></td>
     </tr>
     <tr class="spaceUnder">
       <td colspan="3"><%= @positions[1].summary %></td>
     </tr>
     <tr>
       <td class="heading2"><%= @positions[2].company.name %>, <%= @positions[2].title %></td>
-      <td colspan="2" class="txtAlignRight"><%= @positions[2].start_date.month %> <%= @positions[2].start_date.year %> - <%= @positions[2].end_date.month %> <%= @positions[2].end_date.year %></td>
+      <td colspan="2" class="txtAlignRight"><%= Date::MONTHNAMES[@positions[2].start_date.month] %> <%= @positions[2].start_date.year %> - <%= Date::MONTHNAMES[@positions[2].end_date.month] %> <%= @positions[2].end_date.year %></td>
     </tr>
     <tr class="spaceUnder borderUnder">
       <td colspan="3"><%= @positions[2].summary %></td>

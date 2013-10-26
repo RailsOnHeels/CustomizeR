@@ -6,16 +6,16 @@
 
 
 
-
-<form action="create_resume"   method="GET" >
-
-
         <table class="table table-striped" >
 
-          <tr>
-            <td>
+
 
         <div class="accordion" id="accordion1">
+
+          <tr>
+          <form action="create_resume"   method="GET" >
+
+              <td>
           <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
@@ -34,27 +34,25 @@
               </div>
             </div>
           </div>
-      </div>
+
             </td>
+
             <td>
 
         <% if @saved_jobs.all[0].is_applied == false %>
             <input type="submit" value="Create" class="btn btn-primary"  />
         <% end %>
+
+
             </td>
+          </form>
           </tr>
 
-
-
-
-
-
-
       <tr>
+
+
+      <form action="create_resume"   method="GET" >
         <td>
-
-
-
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
@@ -72,17 +70,23 @@
           </div>
         </div>
       </div>
+
        </td>
 
         <td>
           <% if @saved_jobs.all[1].is_applied == false %>
-          <button class="btn btn-primary" type="button">Create</button>
+              <input type="submit" value="Create" class="btn btn-primary"  />
             <% end %>
+
             </td>
+      </form>
           </tr>
 
-       <tr>
 
+
+
+       <tr>
+         <form action="create_resume"   method="GET" >
        <td>
       <div class="accordion-group">
         <div class="accordion-heading">
@@ -101,20 +105,23 @@
         </div>
       </div>
 
-    </div>
+
           </td>
 
           <td>
 
 
           <% if @saved_jobs.all[1].is_applied == false %>
-          <button class="btn btn-primary" type="button">Create</button>
+                <input type="submit" value="Create" class="btn btn-primary"  />
           <% end %>
-          </td>
 
+          </td>
+         </form>
           </tr>
+
+          </div>
 </table>
-  </form>
+
 <%# end %>
 
 
