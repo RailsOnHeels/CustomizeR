@@ -31,16 +31,32 @@ class AuthlinksController < ApplicationController
       @positions = client.profile(:fields => [:positions]).positions.all
       @saved_jobs = client.job_bookmarks(:fields => [:job, :is_applied, :is_saved])
 
-      #@updated_profile = reorganize_profile(@profile, @saved_jobs.all[0])
       render :action => :index
 
     end
 
     def create_resume
-      authenticate_link()
+      client = LinkedIn::Client.new('dgdg77vt2f48', 'ToYDzQsG95imJXk6')
+      if session[:atoken].nil?
+        pin = params[:oauth_verifier]
+        atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
+        session[:atoken] = atoken
+        session[:asecret] = asecret
+      else
+        client.authorize_from_access(session[:atoken], session[:asecret])
+      end
+      @profile = client.profile(:fields => %w(first-name last-name headline positions educations skills location:(name) summary specialties ))
+      @connections = client.connections
+
+      @full_profile = client.profile(:fields => [:associations, :honors, :interests, :patents, :certifications, :courses, :volunteer, :date_of_birth, :honors_awards,:phone_numbers, :main_address, :email_address, :three_current_positions, :three_past_positions])
+      @positions = client.profile(:fields => [:positions]).positions.all
+      @saved_jobs = client.job_bookmarks(:fields => [:job, :is_applied, :is_saved])
+
       if params[:job] == "0"
-        @skills = {"web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
-                                           "JavaScript"], "ios developer" => ["iOS development", "Objective-C", "iOS"], "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+        @skills = { "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"],
+                    "ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+                                                                                                     "JavaScript"],
+        }
       end
 
 
@@ -52,9 +68,8 @@ class AuthlinksController < ApplicationController
       end
 
       if params[:job] =="2"
-        @skills = {"ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
-                                                                                                          "JavaScript"],
-                         "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+        @skills = {"web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+                                      "JavaScript"], "ios developer" => ["iOS development", "Objective-C", "iOS"], "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
 
       end
 
