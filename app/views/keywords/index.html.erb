@@ -1,25 +1,39 @@
-<h1>Listing keywords</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @keywords.each do |keyword| %>
-  <tr>
-    <td><%= keyword.name %></td>
-    <td><%= keyword.description %></td>
-    <td><%= link_to 'Show', keyword %></td>
-    <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-    <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Keyword', new_keyword_path %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customizer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "sample app", '#', id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home",    '#' %></li>
+          <li><%= link_to "Help",    '#' %></li>
+          <li><%= link_to "Sign in", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<%= yield %>
+<footer class="footer">
+  <small>
+    <a href="http://railstutorial.org/">Rails Tutorial</a>
+    by Michael Hartl
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
+</body>
+</html>
