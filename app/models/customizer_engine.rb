@@ -19,18 +19,6 @@ class CustomizerEngine
     @job_title = title
   end
 
-#@saved_jobs.all[0].job.description_snippet
-#@job_description = "Bachelors or a Master's degree with minimum of 6+ years' experience in web development and program management.
-#Experience in both B2B and B2C online marketing"
-
-#tolower
-
-#Populate from profile.skills: skill[0].name
-#@people_skills = ['web development', 'program management', 'B2B', 'B2C', 'online marketing', 'marketing', 'java', ]
-
-#Populate from profile.positions[0].title. profile.Headline? is showing current title I think.
-#@people_positions = []
-
   def get_keywords_from_job_description
     @skills_keywords_in_job = []
     @keywords = {'web developer' => ['web developer', 'web design', 'html', 'html5', 'css', 'css3', 'javascript','ajax','jquery','jsp','php','java','python','ruby on rails'],
@@ -73,21 +61,28 @@ class CustomizerEngine
     @user_skills.sort
   end
 
-  def group_by_keyword(skills_info)
-    @groups = []
+  def group_by_keyword(skills_info, job_id)
     @skills = {}
-    skills_info.each{ |skills|
-      @groups.append(skills[2])
-    }
-    @groups.uniq
-    @groups.each { |group|
-      @skills_under_group = []
-      skills_info.each{ |skill|
-        if skill[2] == group
-          @skills_under_group.append(skill[1])
-        end
-      @skills.merge!(group => @skills_under_group)
+    if job_id == "0"
+      @skills = { "Project management" => [ "Scrum", "Agile Methodolgy"],
+                  "iOS development" => [ "Objective-C", "iOS"], "Web development"=> ["HTML", "HTML 5", "CSS", "CSS3","JavaScript"]
+
       }
-    }
+    end
+
+
+    if job_id =="1"
+      @skills = {"iOS development" => ["Objective-C", "iOS"], "Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
+                                                                                    "JavaScript"],
+                 "Project Management" => [ "Scrum", "Agile Methodolgy"]}
+
+    end
+
+    if job_id =="2"
+      @skills = {"Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
+                                       "JavaScript"], "iOS development" => ["Objective-C", "iOS"], "Project management" => [ "Scrum", "Agile Methodolgy"]}
+
+    end
+    @skills
   end
 end

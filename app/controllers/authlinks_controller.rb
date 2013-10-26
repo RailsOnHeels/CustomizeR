@@ -56,38 +56,14 @@ class AuthlinksController < ApplicationController
       @positions = client.profile(:fields => [:positions]).positions.all
       @saved_jobs = client.job_bookmarks(:fields => [:job, :is_applied, :is_saved])
 
-      if params[:job] == "0"
-        @skills = { "Project management" => [ "Scrum", "Agile Methodolgy"],
-                    "iOS development" => [ "Objective-C", "iOS"], "Web development"=> ["HTML", "HTML 5", "CSS", "CSS3","JavaScript"]
-
-        }
-      end
-
-
-      if params[:job] =="1"
-        @skills = {"iOS development" => ["Objective-C", "iOS"], "Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
-                                                                                                          "JavaScript"],
-                         "Project Management" => [ "Scrum", "Agile Methodolgy"]}
-
-      end
-
-      if params[:job] =="2"
-        @skills = {"Web development"=> [ "HTML", "HTML 5", "CSS", "CSS3",
-                                      "JavaScript"], "iOS development" => ["Objective-C", "iOS"], "Project management" => [ "Scrum", "Agile Methodolgy"]}
-
-      end
-
+      @skills = reorganize_profile(@profile)
     end
 
-    def reorganize_profile(user_profile, saved_job)
-      #@customizer_engine = CustomizerEngine.new
-      #@skills = user_profile.skills.all
-      #@customizer_engine.set_user_skills(@skills)
-      #@customizer_engine.set_job_description(saved_job)
-      #@job_skills = @customizer_engine.get_keywords_from_job_description
-      #@customizer_engine.match_keywords_to_user_skills
-      #@highlighted_skills = @customizer_engine.highlight_user_skills_based_on_job_skills(@job_skills)
-      #@output = @customizer_engine.group_by_keyword
+    def reorganize_profile(user_profile)
+      @customizer_engine = CustomizerEngine.new
+      @skills = user_profile.skills.all
+      @customizer_engine.set_user_skills(@skills)
+      @output = @customizer_engine.group_by_keyword(@skills, params[:job])
 
 
     end
