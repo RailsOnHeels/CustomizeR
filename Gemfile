@@ -22,14 +22,13 @@ end
 
 gem 'jquery-rails'
 gem 'linkedin'
-<<<<<<< HEAD
+
 gem 'bootstrap-sass', '2.1'
-=======
+
 gem 'highscore'
 gem 'bloomfilter-rb'
 gem 'fast-stemmer'
 gem 'stemmer'
->>>>>>> c5d8525bb185922a1ef5aaad4dd648b6a05e9443
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
