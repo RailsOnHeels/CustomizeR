@@ -51,8 +51,17 @@ Customizer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "keywords#index"
-  match '/home', to: "keywords#index", via: 'get'
+  root :to => 'Authlinks#link'
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id))(.:format)'
+  get 'Authlinks/link'
+  get 'Authlinks/authenticate_link'
+  get 'Authlinks/create_resume'
+
 
   # See how all your routes lay out with "rake routes"
 

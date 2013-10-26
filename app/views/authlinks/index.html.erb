@@ -1,0 +1,159 @@
+
+<%= javascript_include_tag '/app/assets/javascripts/collapse.js' %>
+
+
+<!--
+<% (@saved_jobs.all).each do |job| %>
+
+<div class = container>
+<div class ='row'>
+  <div class = "span5">
+
+ </div>
+  <div class = "span2 offset1">
+
+  </div>
+</div>
+</div>
+
+<div class="accordion" id="accordion1">
+  <div class="accordion-group">
+
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+        <% if job.is_applied == true %>
+            <%= job.job.position.title %> <%= job.job.company.name %>
+            <button class="btn btn-primary" type="button">Create</button>
+        <% end %>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <%= job.job.description_snippet %>
+
+    </div>
+  </div>
+ </div>
+
+<% end %>-->
+
+<%# end %>
+
+
+<!--:url => {:action => :create_resume, :id => @saved_jobs -->
+
+
+
+
+
+<form action="create_resume"   method="GET" >
+
+
+        <table class="table table-striped" >
+
+          <tr>
+            <td>
+
+        <div class="accordion" id="accordion1">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                <% if @saved_jobs.all[0].is_applied == true %>
+                    <%= @saved_jobs.all[0].job.position.title %> <%= @saved_jobs.all[0].job.company.name %>
+
+                    <input type="hidden" name="job" value=0>
+                <% end %>
+              </a>
+            </div>
+
+            <div id="collapseOne" class="accordion-body collapse">
+              <div class="accordion-inner">
+
+                <%= @saved_jobs.all[0].job.description_snippet %>
+              </div>
+            </div>
+          </div>
+      </div>
+            </td>
+            <td>
+
+        <% if @saved_jobs.all[0].is_applied == true %>
+            <input type="submit" value="Create" class="btn btn-primary"  />
+        <% end %>
+            </td>
+          </tr>
+
+
+
+
+
+
+
+      <tr>
+        <td>
+
+
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+            <% if @saved_jobs.all[1].is_applied == true %>
+                <%= @saved_jobs.all[1].job.position.title %> <%= @saved_jobs.all[1].job.company.name %>
+                <input type="hidden" name="job" value=1>
+            <% end %>
+          </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          <div class="accordion-inner">
+
+            <%= @saved_jobs.all[1].job.description_snippet %>
+
+          </div>
+        </div>
+      </div>
+       </td>
+
+        <td>
+          <% if @saved_jobs.all[1].is_applied == true %>
+          <button class="btn btn-primary" type="button">Create</button>
+            <% end %>
+            </td>
+          </tr>
+
+       <tr>
+
+       <td>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
+            <% if @saved_jobs.all[2].is_applied == true %>
+                <%= @saved_jobs.all[2].job.position.title %> <%= @saved_jobs.all[2].job.company.name %>
+                <input type="hidden" name="job" value=2>
+
+            <% end %>
+          </a>
+        </div>
+        <div id="collapseThree" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <%= @saved_jobs.all[2].job.description_snippet %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+          </td>
+
+          <td>
+
+
+          <% if @saved_jobs.all[1].is_applied == true %>
+          <button class="btn btn-primary" type="button">Create</button>
+          <% end %>
+          </td>
+
+          </tr>
+</table>
+  </form>
+<%# end %>
+
+
+<!--:url => {:action => :create_resume, :id => @saved_jobs -->

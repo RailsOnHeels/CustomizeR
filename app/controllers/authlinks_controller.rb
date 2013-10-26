@@ -9,7 +9,7 @@ class AuthlinksController < ApplicationController
       redirect_to client.request_token.authorize_url
     end
 
-    def show
+    def index
 
     end
 
@@ -33,6 +33,23 @@ class AuthlinksController < ApplicationController
 
       #@updated_profile = reorganize_profile(@profile, @saved_jobs.all[0])
       render :action => :info
+
+    end
+
+    def create_resume
+      authenticate_link()
+      if job == 0
+        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      end
+
+
+      if job ==1
+        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      end
+
+      if job ==2
+        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      end
 
     end
 
