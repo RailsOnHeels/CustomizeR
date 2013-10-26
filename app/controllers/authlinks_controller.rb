@@ -32,35 +32,44 @@ class AuthlinksController < ApplicationController
       @saved_jobs = client.job_bookmarks(:fields => [:job, :is_applied, :is_saved])
 
       #@updated_profile = reorganize_profile(@profile, @saved_jobs.all[0])
-      render :action => :info
+      render :action => :index
 
     end
 
     def create_resume
       authenticate_link()
-      if job == 0
-        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      if params[:job] == "0"
+        @skills = {"web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+                                           "JavaScript"], "ios developer" => ["iOS development", "Objective-C", "iOS"], "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
       end
 
 
-      if job ==1
-        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      if params[:job] =="1"
+        @skills = {"ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+                                                                                                          "JavaScript"],
+                         "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+
       end
 
-      if job ==2
-        @skills = reorganizing_profile(@profile,@saved_jobs.all[0])
+      if params[:job] =="2"
+        @skills = {"ios developer" => ["iOS development", "Objective-C", "iOS"], "web developer"=> ["Web Development", "HTML", "HTML 5", "CSS", "CSS3",
+                                                                                                          "JavaScript"],
+                         "project manager" => ["Project Management", "Scrum", "Agile Methodolgy"]}
+
       end
 
     end
 
     def reorganize_profile(user_profile, saved_job)
-      @customizer_engine = CustomizerEngine.new
-      @customizer_engine.set_user_skills(user_profile.skills)
-      @customizer_engine.set_job_description(saved_job.job.description_snippet)
-      @job_skills = @customizer_engine.get_keywords_from_job_description
-      @customizer_engine.match_keywords_to_user_skills
-      @highlighted_skills = @customizer_engine.highlight_user_skills_based_on_job_skills(@job_skills)
-      @output = @customizer_engine.group_by_keyword
+      #@customizer_engine = CustomizerEngine.new
+      #@skills = user_profile.skills.all
+      #@customizer_engine.set_user_skills(@skills)
+      #@customizer_engine.set_job_description(saved_job)
+      #@job_skills = @customizer_engine.get_keywords_from_job_description
+      #@customizer_engine.match_keywords_to_user_skills
+      #@highlighted_skills = @customizer_engine.highlight_user_skills_based_on_job_skills(@job_skills)
+      #@output = @customizer_engine.group_by_keyword
+
 
     end
 
