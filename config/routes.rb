@@ -51,7 +51,7 @@ Customizer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'Authlinks#link'
+  root :to => 'Authlinks#home'
 
   # See how all your routes lay out with "rake routes"
 
@@ -62,6 +62,7 @@ Customizer::Application.routes.draw do
   get 'Authlinks/authenticate_link'
   get 'Authlinks/create_resume'
   get 'Authlinks/edit_resume'
+  get 'Authlinks/home'
 
 
   # See how all your routes lay out with "rake routes"

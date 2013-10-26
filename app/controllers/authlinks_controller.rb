@@ -13,6 +13,11 @@ class AuthlinksController < ApplicationController
 
     end
 
+    def home
+
+    end
+
+
 
     def authenticate_link
       client = LinkedIn::Client.new('dgdg77vt2f48', 'ToYDzQsG95imJXk6')

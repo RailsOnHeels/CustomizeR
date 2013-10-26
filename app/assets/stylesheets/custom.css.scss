@@ -54,32 +54,6 @@ p {
 
 /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navbar-inverse .navbar-inner {
-    background-image: linear-gradient(to bottom, #330066, #330066);
-    background-repeat: repeat-x;
-    border-color: #330066;
-    padding-top:30px;
-}
-header{
-	position:absolute;
-	height:100px;
-}
 /* footer */
 
 footer {
@@ -132,4 +106,48 @@ tr.spaceAbove > td
 }
 .txtAlignRight {
 	text-align:right;
+}
+.txtAlignLeft {
+  text-align:left;
+}
+.txtAlignCenter {
+  text-align:center;
+}
+tr.spaceRight > td{
+  padding-right : 2em;
+}
+.btn, .btn-primary{
+  background-color: #3366FF;
+}
+.headerLogo {
+  margin: 40px;
+  border-bottom: 1px solid rgb(204, 204,204) 
+}
+.button-link {
+    float: left;
+}
+.action-button {
+height: 60px;
+width: 280px;
+border: 1px solid rgb(204, 204, 204);
+border-radius: 5px 5px 5px 5px;
+box-shadow: 1px 1px 8px 0px rgb(204, 204, 204);
+background-image: -moz-linear-gradient(center top , rgb(255, 255, 255) 46%, rgb(239, 239, 239) 95%);
+}
+.button-logo {
+    background: url("http://resume.linkedinlabs.com/images/../images/icons.png?1344924637") no-repeat scroll 0px -162px transparent;
+    width: 40px;
+    height: 40px;
+    margin-top:7px;
+    margin-left:5px;
+    }
+
+.button-text {
+    line-height: 60px;
+    float: left;
+    display: block;
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top:-50px
 }
