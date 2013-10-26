@@ -59,12 +59,22 @@
     <tr class="spaceUnder spaceAbove">
       <td colspan="3" class="heading">Certifications</td>
     </tr>
+
+    <tr>
+      <td ><%= @full_profile.certifications.all[0].name %></td>
+    </tr>
+    <tr>
+      <td ><%= @full_profile.certifications.all[1].name %></td>
+    </tr>
+
+
   </table>
+  <!--
   <table>
     <tr class="spaceUnder spaceAbove" align='right'>
     <td align='right'> <input type="submit" value="Edit" class="btn btn-primary"  /></td>
     <td align='right'> <input type="submit" value="Export to PDF" class="btn btn-primary"  /></td>
     </tr>
-  </table>
+  </table>  --->
 </div>
  </form>
