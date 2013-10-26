@@ -1,0 +1,64 @@
+
+<div class="formResume" style="width:90%; margin:10px 70px 10px 70px;">
+  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="spaceUnder borderUnder">
+      <td width="80%" style="font-size:2em"><%= @profile.first_name %>&nbsp;<%= @profile.last_name %></td>
+      <td width="10%"><%= @full_profile.phone_numbers.all[0].phone_number %></td>
+      <td><%= @full_profile.email_address %></td>
+    </tr>
+    <tr class="spaceUnder spaceAbove">
+      <td colspan="3" class="heading">Skills</td>
+    </tr>
+    <tr class="">
+    <textarea>
+    <tr class="">
+      <td colspan="3"><span class="heading2">Web Technologies</span> : Ruby, Rails, XHTML, CSS, JavaScript
+      </td>
+    </tr>
+    <tr class="spaceUnder borderUnder">
+      <td colspan="3"><span class="heading2">Methodologies</span> : Agile, XP Programming
+      </td>
+    </tr>
+    </textarea>
+    </tr>
+    <tr class="spaceUnder spaceAbove">
+      <td colspan="3" class="heading">Experience</td>
+    </tr>
+    <tr>
+      <td class="heading2"><%= @positions[0].company.name %>, <%= @positions[0].title %></td>
+      <td colspan="2" class="txtAlignRight"><%= @positions[0].start_date.month %> <%= @positions[0].start_date.year %> - Present</td>
+    </tr>
+    <tr class="spaceUnder">
+      <td colspan="3"><%= @positions[0].summary %></td>
+    </tr>
+    <tr>
+      <td class="heading2"><%= @positions[1].company.name %>, <%= @positions[1].title %></td>
+      <td colspan="2" class="txtAlignRight"><%= @positions[1].start_date.month %> <%= @positions[1].start_date.year %> - <%= @positions[1].end_date.month %> <%= @positions[1].end_date.year %></td>
+    </tr>
+    <tr class="spaceUnder">
+      <td colspan="3"><%= @positions[1].summary %></td>
+    </tr>
+    <tr>
+      <td class="heading2"><%= @positions[2].company.name %>, <%= @positions[2].title %></td>
+      <td colspan="2" class="txtAlignRight"><%= @positions[2].start_date.month %> <%= @positions[2].start_date.year %> - <%= @positions[2].end_date.month %> <%= @positions[2].end_date.year %></td>
+    </tr>
+    <tr class="spaceUnder borderUnder">
+      <td colspan="3"><%= @positions[2].summary %></td>
+    </tr>
+    <tr class="spaceUnder spaceAbove">
+      <td colspan="3" class="heading">Education</td>
+    </tr>
+    <tr>
+      <td ><%= @profile.educations.all[0].school_name %>, <%= @profile.educations.all[0].degree %></td>
+      <td colspan="2" class="txtAlignRight"><%= @profile.educations.all[0].start_date.year %> - <%= @profile.educations.all[0].end_date.year %></td>
+    </tr>
+    <tr class="spaceUnder borderUnder">
+      <td ><%= @profile.educations.all[1].school_name %>, <%= @profile.educations.all[1].degree %></td>
+      <td colspan="2" class="txtAlignRight"><%= @profile.educations.all[1].start_date.year %> - <%= @profile.educations.all[1].end_date.year %></td>
+    </tr>
+    <tr class="spaceUnder spaceAbove">
+      <td colspan="3" class="heading">Certifications</td>
+    </tr>
+
+  </table>
+</div>

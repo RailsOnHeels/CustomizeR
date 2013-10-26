@@ -35,6 +35,10 @@ class AuthlinksController < ApplicationController
 
     end
 
+    def edit_resume
+      create_resume
+    end
+
     def create_resume
       client = LinkedIn::Client.new('dgdg77vt2f48', 'ToYDzQsG95imJXk6')
       if session[:atoken].nil?

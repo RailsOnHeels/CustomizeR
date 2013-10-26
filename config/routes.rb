@@ -61,6 +61,7 @@ Customizer::Application.routes.draw do
   get 'Authlinks/link'
   get 'Authlinks/authenticate_link'
   get 'Authlinks/create_resume'
+  get 'Authlinks/edit_resume'
 
 
   # See how all your routes lay out with "rake routes"
