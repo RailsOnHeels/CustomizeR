@@ -22,6 +22,10 @@ end
 
 gem 'jquery-rails'
 gem 'linkedin'
+gem 'highscore'
+gem 'bloomfilter-rb'
+gem 'fast-stemmer'
+gem 'stemmer'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

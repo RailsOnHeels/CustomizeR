@@ -15,6 +15,4 @@ Experience in both B2B and B2C online marketing"
 @skills_keywords_in_job = nil
 
 
-
-
 end
