@@ -7,8 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "CustomizeR", '#', id:"logo" %><div style="padding-top:10px"><i>Customize your resume, expand your options!</i></div>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%#= link_to "View Resume", keyword_path %></li>
+          <li><%#= link_to "Edit Resume", edit_keyword_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="mainContent" style="margin-top:30px">
 <%= yield %>
-
+</div>
+<footer class="footer">
+  <center>
+    Rails on Heels
+  </center>
+</footer>
 </body>
 </html>
