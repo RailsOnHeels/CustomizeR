@@ -3,7 +3,7 @@ class CustomizerEngine
   def set_user_skills (skills)
     @user_skills = []
     skills.each { |skill|
-      @user_skills.append([skill, "", 0])
+      @user_skills.append([1, skill, ""])
     }
   end
 
@@ -33,20 +33,9 @@ class CustomizerEngine
 
   def get_keywords_from_job_description
     @skills_keywords_in_job = []
-    @keywords = {'web development' => ['web development', 'web design'], 'program management' => ['program management',
-                                                                                                  'project management'],
-                 'UX' => ['user experience', 'UED', 'UX', 'user experience design', 'HCI',
-                          'human computer interaction'], 'iOS apps' => ['iOS apps', 'mobile app development', 'objective c'],
-                 'git' => ['git', 'github'],
-                 'agile' => ['agile', 'scrum', 'co-location', 'pair programming','tdd',
-                             'test driven development', 'refactor', 'code refactoring',
-                             'continuous integration', 'XP',
-                             'extreme programming', 'story', 'velocity'],
-                 'rest' => ['rest', 'rest api', 'get post put delete','representational state transfer', 'web API'],
-                 'json' => ['json', 'javascript object notation'],
-                 'csm' => ['scrum master certified', 'csm', 'certification for scrum'],
-                 'sdlc' => ['sdlc','software development life cycle', 'application development life cycle',
-                            'software development life-cycle'], 'html' => ['html', 'css']
+    @keywords = {'web developer' => ['web developer', 'web design', 'html', 'html5', 'css', 'css3', 'javascript','ajax','jquery','jsp','php','java','python','ruby on rails'],
+                 'ios developer' => ['ios developer', 'ios sdk','objective-c', 'xml','json','git','github'],
+                 'project manager' => ['project manager', 'project management','scrum','pmp certification','agile', 'sdlc']
     }
     @keywords.each { |key, synonyms|
       synonyms.each { |synonym|
@@ -59,26 +48,15 @@ class CustomizerEngine
   end
 
   def match_keywords_to_user_skills
-    @keywords = {'web development' => ['web development', 'web design'], 'program management' => ['program management',
-                                                                                                  'project management'],
-                 'UX' => ['user experience', 'UED', 'UX', 'user experience design', 'HCI',
-                                                                                                                                  'human computer interaction'], 'iOS apps' => ['iOS apps', 'mobile app development', 'objective c'],
-                 'git' => ['git', 'github'],
-                 'agile' => ['agile', 'scrum', 'co-location', 'pair programming','tdd',
-                                                         'test driven development', 'refactor', 'code refactoring',
-                                                         'continuous integration', 'XP',
-                                                         'extreme programming', 'story', 'velocity'],
-                 'rest' => ['rest', 'rest api', 'get post put delete','representational state transfer', 'web API'],
-                 'json' => ['json', 'javascript object notation'],
-                 'csm' => ['scrum master certified', 'csm', 'certification for scrum'],
-                 'sdlc' => ['sdlc','software development life cycle', 'application development life cycle',
-                            'software development life-cycle'], 'html' => ['html', 'css']
+    @keywords = {'web developer' => ['web developer', 'web design', 'html', 'html5', 'css', 'css3', 'javascript','ajax','jquery','jsp','php','java','python','ruby on rails'],
+                 'ios developer' => ['ios developer', 'ios sdk','objective-c', 'xml','json','git','github'],
+                 'project manager' => ['project manager', 'project management','scrum','pmp certification','agile', 'sdlc']
     }
     @keywords.each { |key, synonyms|
       synonyms.each { |synonym|
         @user_skills.each { |user_skill|
-          if user_skill[0].include?(synonym)
-            user_skill[1] = key
+          if user_skill[1].include?(synonym)
+            user_skill[2] = key
           end
         }
       }
@@ -88,10 +66,28 @@ class CustomizerEngine
 
   def highlight_user_skills_based_on_job_skills(job_skills)
     @user_skills.each { |skill|
-      if job_skills.include?(skill[1])
-        skill[2] = 1
+      if job_skills.include?(skill[2])
+        skill[0] = 0
       end
     }
-    @user_skills
+    @user_skills.sort
+  end
+
+  def group_by_keyword(skills_info)
+    @groups = []
+    @skills = {}
+    skills_info.each{ |skills|
+      @groups.append(skills[2])
+    }
+    @groups.uniq
+    @groups.each { |group|
+      @skills_under_group = []
+      skills_info.each{ |skill|
+        if skill[2] == group
+          @skills_under_group.append(skill[1])
+        end
+      @skills.merge!(group => @skills_under_group)
+      }
+    }
   end
 end
